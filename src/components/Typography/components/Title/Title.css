@@ -1,0 +1,31 @@
+.typo-title {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-title-text-primary, #333333);
+    margin: 0;
+    padding: 0.3125rem;
+}
+.typo-title-xl {
+    font-size: var(--font-title-xl-size, 3rem);
+    line-height: var(--font-title-xl-line-height, 4.063rem);
+}
+.typo-title-l {
+    font-size: var(--font-title-l-size, 2.625rem);
+    line-height: var(--font-title-l-line-height, 3.563rem);
+}
+.typo-title-m {
+    font-size: var(--font-title-m-size, 2.25rem);
+    line-height: var(--font-title-m-line-height, 3.063rem);
+}
+.typo-title-s {
+    font-size: var(--font-title-s-size, 2rem);
+    line-height: var(--font-title-s-line-height, 2.688rem);
+}
+.typo-title-regular {
+    font-weight: var(--font-weight-regular, 400);
+}
+.typo-title-semibold {
+    font-weight: var(--font-weight-semibold, 600);
+}
+.typo-title-bold {
+    font-weight: var(--font-weight-bold, 700);
+}

@@ -1,0 +1,8 @@
+.container {
+    border: 0.0625rem solid var(--color-container-border, #E0E0E0);
+    padding: 1rem;
+    margin: 1rem;
+    box-sizing: border-box;
+    background-color: var(--color-container-background, #FFFFFF);
+    box-shadow: 0 0.125rem 0.5rem var(--color-container-box-shadow, rgba(0, 0, 0, 0.1));
+}

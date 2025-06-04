@@ -1,0 +1,24 @@
+.loader {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loader .spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.25rem solid var(--color-black-100-alpha-10);
+    border-top-color: var(--color-blue-100);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

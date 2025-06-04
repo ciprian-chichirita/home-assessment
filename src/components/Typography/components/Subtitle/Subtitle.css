@@ -1,0 +1,32 @@
+.typo-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-subtitle-text-primary, #333333);
+    margin: 0;
+    padding: 0.3125rem;
+}
+
+.typo-subtitle-xl {
+    font-size: var(--font-subtitle-xl-size, 1.75rem);
+    line-height: var(--font-subtitle-xl-line-height, 2.375rem);
+}
+.typo-subtitle-l {
+    font-size: var(--font-subtitle-l-size, 1.5rem);
+    line-height: var(--font-subtitle-l-line-height, 2.063rem);
+}
+.typo-subtitle-m {
+    font-size: var(--font-subtitle-m-size, 1.25rem);
+    line-height: var(--font-subtitle-m-line-height, 2.688rem);
+}
+.typo-subtitle-s {
+    font-size: var(--font-subtitle-s-size, 1.125rem);
+    line-height: var(--font-subtitle-s-line-height, 1.5rem);
+}
+.typo-subtitle-regular {
+    font-weight: var(--font-weight-regular, 400);
+}
+.typo-subtitle-semibold {
+    font-weight: var(--font-weight-semibold, 600);
+}
+.typo-subtitle-bold {
+    font-weight: var(--font-weight-bold, 700);
+}

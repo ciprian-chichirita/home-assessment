@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+
+  /* Colors */
+  /* Here I would actually go with some semantic tokens, but for now, let's keep it simple */
+  --color-black-100-alpha-10: rgba(0, 0, 0, 0.1);
+  --color-black-200: #333333;
+  --color-grey-100: #F5F5F5;
+  --color-grey-200: #EEEEEE;
+  --color-grey-300: #E0E0E0;
+  --color-grey-400: #8A8A8A;
+  
+  --color-white-100: #FFFFFF;
+  --color-blue-100: #4B93E0;
+
+  /* button */
+  --color-button-text-primary: var(--color-black-200);
+  --color-button-text-disabled: var(--color-grey-400);
+
+  --color-button-background-primary: var(--color-white-100);
+  --color-button-background-hover-primary: var(--color-grey-100);
+  --color-button-background-disabled: var(--color-grey-100);
+
+  --color-button-border-primary: var(--color-white-100);
+  --color-button-border-hover-primary: var(--color-grey-100);
+  --color-button-border-disabled: var(--color-grey-300);
+
+  /* checkbox */
+  --color-checkbox-sign-primary: var(--color-white-100);
+  --color-checkbox-sign-disabled: var(--color-grey-300);
+
+  --color-checkbox-background-primary: var(--color-white-100);
+  --color-checkbox-background-selected-primary: var(--color-blue-100);
+  --color-background-disabled: var(--color-grey-100);
+
+  --color-checkbox-border-primary: var(--color-grey-400);
+  --color-checkbox-border-selected-primary: var(--color-blue-100);
+  --color-checkbox-border-disabled: var(--color-grey-300);
+
+  /* typography */
+  --color-title-text-primary: var(--color-black-200);
+  --color-subtitle-text-primary: var(--color-black-200);
+  --color-body-text-primary: var(--color-black-200);
+  
+  /* Container */
+  --color-container-background: var(--color-white-100);
+  --color-container-border: var(--color-grey-300);
+  --color-container-box-shadow: var(--color-black-100-alpha-10);
+
+  /* Title Sizes */
+  --font-title-xl-size: 3rem;
+  /* 48px */
+  --font-title-xl-line-height: 4.063rem;
+
+  --font-title-l-size: 2.625rem;
+  /* 42px */
+  --font-title-l-line-height: 3.563rem;
+
+  --font-title-m-size: 2.25rem;
+  /* 36px */
+  --font-title-m-line-height: 3.063rem;
+
+  --font-title-s-size: 2rem;
+  /* 32px */
+  --font-title-s-line-height: 2.688rem;
+
+  /* Subtitle Sizes */
+  --font-subtitle-xl-size: 1.75rem;
+  /* 28px */
+  --font-subtitle-xl-line-height: 2.375rem;
+
+  --font-subtitle-l-size: 1.5rem;
+  /* 24px */
+  --font-subtitle-l-line-height: 2.063rem;
+
+  --font-subtitle-m-size: 1.25rem;
+  /* 20px */
+  --font-subtitle-m-line-height: 2.688rem;
+
+  --font-subtitle-s-size: 1.125rem;
+  /* 18px */
+  --font-subtitle-s-line-height: 1.5rem;
+
+  /* Body Text Sizes */
+  --font-body-l-size: 1rem;
+  /* 16px */
+  --font-body-l-line-height: 1.375rem;
+
+  --font-body-m-size: 0.875rem;
+  /* 14px */
+  --font-body-m-line-height: 1.188rem;
+
+  --font-body-s-size: 0.75rem;
+  /* 12px */
+  --font-body-s-line-height: 1.063rem;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: var(--font-weight-regular);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 785px;
+  max-width: 1280px;
+  margin: 0 auto;
+}

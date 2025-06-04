@@ -1,0 +1,46 @@
+{
+  "name": "home-assessment",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "npm": "10.9.2",
+    "node": "22.16.0"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run mock-server\" \"npm run dev\"",
+    "dev": "cross-env NODE_ENV=development vite --host localhost --port 5173",
+    "build": "cross-env NODE_ENV=production tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "concurrently \"npm run mock-server\" \"vite preview --host localhost --port 5173\"",
+    "test": "echo \"No tests specified\" && exit 0",
+    "mock-server": "json-server --watch db.json --port 1337"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@csstools/normalize.css": "^12.1.1",
+    "@eslint/js": "^9.25.0",
+    "@types/node": "^22.15.29",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-dom": "^1.50.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-react-x": "^1.50.0",
+    "globals": "^16.0.0",
+    "json-server": "^1.0.0-beta.3",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5"
+  }
+}
