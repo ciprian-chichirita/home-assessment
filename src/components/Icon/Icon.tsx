@@ -38,3 +38,5 @@ export const Icon = ({
         <img src={src} className={className} {...(styleCustomSize && { style: { ...styleCustomSize } })} {...props} />
     );
 }
+
+export default Icon;

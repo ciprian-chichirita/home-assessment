@@ -6,15 +6,15 @@ import Typography from "../Typography/Typography";
 import "./DownloadFiles.css";
 import DownloadFilesItem from "../DownloadFilesItem/DownloadFilesItem";
 import Loader from "../Loader/Loader";
-import { useQueryGetrocessess } from "../../hooks/useQueryGetProcesses/useQueryGetProcesses";
 import { useMemo, useState } from "react";
 import type { ProcessItem } from "../../services/resources/processes";
 import { useModalContext } from "../Modal/hooks/Modal";
 import DownloadFilesModalContent from "./components/DownloadFilesModalContent/DownloadFilesModalContent";
+import useQueryGetProcesses from "../../hooks/useQueryGetProcesses/useQueryGetProcesses";
 
 export const DownloadFiles = () => {
     const { setContent, open: openModal } = useModalContext();
-    const { isLoading, data = [] } = useQueryGetrocessess();
+    const { isLoading, data = [] } = useQueryGetProcesses();
     const [selectedItems, setSelectedItems] = useState(new Map());
     const [selectedCheckBox, setSelectedCheckbox] = useState(false);
     const allSelectableItems = useMemo(() => {

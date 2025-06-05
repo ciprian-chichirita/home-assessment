@@ -4,7 +4,6 @@ import Typography from "../../../Typography/Typography";
 import CircleIcon from "../../../../assets/icon/circle-svgrepo-com.svg";
 import "./Status.css";
 
-
 const statusKeys = ["available", "scheduled"] as const;
 export type Statuses = typeof statusKeys[number];
 

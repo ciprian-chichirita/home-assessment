@@ -3,10 +3,10 @@ import Container from "../../components/Container/Container";
 import { getYear } from "date-fns";
 import Typography from "../../components/Typography/Typography";
 import DownloadFiles from "../../components/DownloadFiles/DownloadFiles";
-import { useQueryGetrocessess } from "../../hooks/useQueryGetProcesses/useQueryGetProcesses";
+import useQueryGetProcesses from "../../hooks/useQueryGetProcesses/useQueryGetProcesses";
 
 export const MainLayout = () => {
-    const { isLoading } = useQueryGetrocessess();
+    const { isLoading } = useQueryGetProcesses();
 
     if (isLoading) {
         return <Loader />;
