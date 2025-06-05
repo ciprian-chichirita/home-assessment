@@ -13,18 +13,23 @@ export const Body = ({
     size = 'M',
     variant = 'regular',
     children,
+    className,
     ...props
 }: PropsWithChildren<BodyProps>) => {
-    let className = `typo-body typo-body-${variant}`;
+    let internalClassName = `typo-body typo-body-${variant}`;
     let styleCustomSize: React.CSSProperties | undefined = undefined;
     if (typeof size === 'string' && (sizes as readonly string[]).includes(size)) {
-        className += ` typo-body-${size.toLowerCase()}`;
+        internalClassName += ` typo-body-${size.toLowerCase()}`;
     } else {
         styleCustomSize = { fontSize: size };
     }
 
+    if (className) {
+        internalClassName += ` ${className}`;
+    }
+
     return (
-        <span className={className} {...(styleCustomSize && { style: { ...styleCustomSize } })} {...props}>
+        <span className={internalClassName} {...(styleCustomSize && { style: { ...styleCustomSize } })} {...props}>
             {children}
         </span>
     );

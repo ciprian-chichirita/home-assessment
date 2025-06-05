@@ -15,7 +15,7 @@ export const Button = ({
     const className = `btn btn-${variant}`;
 
     return (
-        <button type="button" className={className} disabled={disabled} {...props}>
+        <button type="button" className={className} disabled={disabled} tabIndex={!disabled ? 0 : -1} {...props}>
             {children}
         </button>
     );

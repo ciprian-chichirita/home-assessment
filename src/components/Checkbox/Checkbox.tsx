@@ -20,7 +20,7 @@ export const Checkbox = ({
     const checkSign = indeterminate && !checked ? "indeterminate" : "checkmark";
 
     return (
-        <label className={className}>
+        <label className={className} tabIndex={!disabled ? 0 : -1}>
             <input type="checkbox" disabled={disabled} checked={checked} {...props} />
             <span className={checkSign}></span>
             {children}

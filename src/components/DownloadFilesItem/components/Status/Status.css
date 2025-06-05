@@ -1,0 +1,8 @@
+.download-files-status-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.download-files-status-indicator-paragraph {
+    padding-left: 1.3125rem;
+}

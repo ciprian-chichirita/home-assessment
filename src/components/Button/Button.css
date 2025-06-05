@@ -6,7 +6,6 @@
     line-height: var(--font-body-m-line-height, 1.188rem);
     font-weight: var(--font-weight-semibold, 600);
     padding: 0.5rem;
-    outline: none;
     opacity: 1;
     border: 0.0625rem solid transparent;
     border-radius: 0.25rem;

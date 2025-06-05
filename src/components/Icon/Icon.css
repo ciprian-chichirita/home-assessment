@@ -16,3 +16,9 @@
     width: 0.875rem;
     height: 0.875rem;
 }
+
+.icon-green {
+    /* generated using: https://isotropic.co/tool/hex-color-to-css-filter/
+    for: --color-green-100: #81d133; */
+    filter: invert(79%) sepia(46%) saturate(656%) hue-rotate(37deg) brightness(85%) contrast(100%);
+}

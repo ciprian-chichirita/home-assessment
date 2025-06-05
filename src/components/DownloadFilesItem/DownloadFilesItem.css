@@ -1,0 +1,39 @@
+.download-files-table-item-path-col {
+    max-width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+    .download-files-table-item-path-col {
+        max-width: 18.75rem;
+    }
+}
+
+.download-files-table-item-checkbox {
+    display: flex;
+    justify-content: flex-start;
+}
+
+td.download-files-table-item-checkbox-td {
+    padding-left: 0.8rem;
+}
+
+td.download-files-table-item-status-td {
+    padding-left: 0;
+}
+
+.download-files-table-item-tr:not(.download-files-table-item-tr-selected):not(.download-files-table-item-tr-disabled):hover {
+    background-color: var(--color-download-files-item-background-hover, #F5F5F5);
+    cursor: pointer;
+}
+
+.download-files-table-item-tr-selected {
+    background-color: var(--color-download-files-item-background-selected, #EEEEEE);
+    cursor: pointer;
+}
+
+.download-files-table-item-tr-disabled {
+    cursor: not-allowed;
+}

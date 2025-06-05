@@ -17,6 +17,9 @@
   --color-grey-200: #EEEEEE;
   --color-grey-300: #E0E0E0;
   --color-grey-400: #8A8A8A;
+
+  /* I am using it inside Icon.css but I did it in a different way */
+  /* --color-green-100: #81d133; */
   
   --color-white-100: #FFFFFF;
   --color-blue-100: #4B93E0;
@@ -54,6 +57,18 @@
   --color-container-background: var(--color-white-100);
   --color-container-border: var(--color-grey-300);
   --color-container-box-shadow: var(--color-black-100-alpha-10);
+
+  /* Download files */
+  --color-download-files-background: var(--color-white-100);
+  --color-download-files-border: var(--color-grey-300);
+  --color-download-files-box-shadow: var(--color-black-100-alpha-10);
+  --color-download-files-item-background-hover: var(--color-grey-100);
+  --color-download-files-item-background-selected: var(--color-grey-200);
+
+  /* Modal */
+  --color-modal-border: var(--color-grey-300);
+  --color-modal-background: var(--color-white-100);
+  --color-modal-box-shadow: var(--color-black-100-alpha-10);
 
   /* Title Sizes */
   --font-title-xl-size: 3rem;
@@ -114,7 +129,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  min-width: 785px;
+  min-width: 675px;
   max-width: 1280px;
   margin: 0 auto;
 }

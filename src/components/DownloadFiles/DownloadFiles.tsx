@@ -1,24 +1,105 @@
-import useMainLayoutContext from "../../screen/MainLayout/context/useMainLayoutContext";
 import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
 import { Icon } from "../Icon/Icon";
 import DownloadIcon from "../../assets/icon/download-svgrepo-com.svg";
 import Typography from "../Typography/Typography";
 import "./DownloadFiles.css";
+import DownloadFilesItem from "../DownloadFilesItem/DownloadFilesItem";
+import Loader from "../Loader/Loader";
+import { useQueryGetrocessess } from "../../hooks/useQueryGetProcesses/useQueryGetProcesses";
+import { useMemo, useState } from "react";
+import type { ProcessItem } from "../../services/resources/processes";
+import { useModalContext } from "../Modal/hooks/Modal";
+import DownloadFilesModalContent from "./components/DownloadFilesModalContent/DownloadFilesModalContent";
 
 export const DownloadFiles = () => {
-    const { data } = useMainLayoutContext();
-    const currentSelectedItemsArr = [];
-    console.log("DownloadFiles: ", data);
+    const { setContent, open: openModal } = useModalContext();
+    const { isLoading, data = [] } = useQueryGetrocessess();
+    const [selectedItems, setSelectedItems] = useState(new Map());
+    const [selectedCheckBox, setSelectedCheckbox] = useState(false);
+    const allSelectableItems = useMemo(() => {
+        return data.reduce((acc, item, index) => {
+            if (item.status === "available") {
+                acc.push([index, item])
+            }
+            return acc;
+        }, [] as [number, ProcessItem][]);
+    }, [data]);
+
+    const renderDownloadFilesItems = useMemo(() => {
+        const downloadFilesItemClickHandler = (index: number) => {
+            return () => {
+                if (!selectedItems.has(index)) {
+                    setSelectedItems((prevMap) => {
+                        const newSelectedItems = new Map(prevMap.set(index, data[index]));
+                        if (allSelectableItems.length === newSelectedItems.size) {
+                            setSelectedCheckbox(true);
+                        }
+                        return newSelectedItems;
+                    });
+                } else {
+                    setSelectedItems((prevMap) => {
+                        const newSelectedItems = new Map(prevMap);
+                        newSelectedItems.delete(index);
+                        setSelectedCheckbox(false);
+                        return newSelectedItems;
+                    });
+                }
+            }
+        }
+
+        return data.map((dlItem, index) => {
+            return (<DownloadFilesItem
+                // eslint-disable-next-line react-x/no-array-index-key
+                key={`download-files-item-${index}`}
+                checked={selectedItems.has(index)}
+                item={dlItem}
+                onClick={downloadFilesItemClickHandler(index)} />);
+        });
+    }, [data, selectedItems, allSelectableItems.length]);
+
+    const isIndeterminate = useMemo(() => {
+        if (selectedCheckBox) {
+            return false;
+        }
+
+        return selectedItems.size > 0 && allSelectableItems.length > selectedItems.size;
+
+    }, [selectedCheckBox, allSelectableItems.length, selectedItems.size]);
+
+    const onSelectedItemsChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        // select all
+        if (event.target.checked) {
+            setSelectedItems(new Map(allSelectableItems));
+        } else { // deselect all
+            setSelectedItems(new Map());
+        }
+        setSelectedCheckbox(event.target.checked);
+    }
+
+    const onDowloadClickHandler = () => {
+        setContent(<DownloadFilesModalContent items={[...selectedItems.values()]} />);
+        openModal();
+    }
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (<section className="download-files-section">
         <h2 className="screen-reader-hidden">Selected files</h2>
         <div className="download-files-header download-files-header-gap">
-            <Checkbox id="select-all" checked={false} indeterminate={false}>
-                {currentSelectedItemsArr.length ? (<Typography.Body size="L">Selected {currentSelectedItemsArr.length}</Typography.Body>) :
-                    (<Typography.Body size="L">None Selected</Typography.Body>)}
-            </Checkbox>
-            <Button disabled={!currentSelectedItemsArr.length}><Icon src={DownloadIcon} />Download Selected</Button>
+            <div className="download-files-header-checkbox">
+                <Checkbox
+                    checked={selectedCheckBox}
+                    onChange={onSelectedItemsChangeHandler}
+                    indeterminate={isIndeterminate}>
+                    {selectedItems.size ? (<Typography.Body size="L">Selected {selectedItems.size}</Typography.Body>) :
+                        (<Typography.Body size="L">None Selected</Typography.Body>)}
+                </Checkbox>
+            </div>
+            <Button disabled={!selectedItems.size} onClick={onDowloadClickHandler}><Icon src={DownloadIcon} />Download Selected</Button>
+
         </div>
         <div className="download-files-body">
             {/* I chose a table here so it will be a11y friendly */}
@@ -27,22 +108,14 @@ export const DownloadFiles = () => {
                 <thead>
                     <tr>
                         <th scope="col"><span className="screen-reader-hidden">Select file</span></th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Device</th>
-                        <th scope="col">Path</th>
-                        <th scope="col">Status</th>
+                        <th scope="col"><Typography.Subtitle size="S" variant="semibold">Name</Typography.Subtitle></th>
+                        <th scope="col"><Typography.Subtitle size="S" variant="semibold">Device</Typography.Subtitle></th>
+                        <th scope="col"><Typography.Subtitle size="S" variant="semibold">Path</Typography.Subtitle></th>
+                        <th scope="col"><Typography.Subtitle size="S" variant="semibold">Status</Typography.Subtitle></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <Checkbox id="file-1" checked={false} indeterminate={false} aria-label="Select smss.exe file" />
-                        </td>
-                        <td>smss.exe</td>
-                        <td>Stark</td>
-                        <td className="download-files-table-path-col">\\Device\\HarddiskVolume2\\Windows\\System32\\smss.exe</td>
-                        <td>available</td>
-                    </tr>
+                    {renderDownloadFilesItems}
                 </tbody>
             </table>
         </div>
